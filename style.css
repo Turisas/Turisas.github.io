@@ -1,0 +1,196 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #555;
+    text-align: center;
+}
+
+.tabs {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab-link:hover {
+    background-color: #ddd;
+}
+
+.tab-link.active {
+    background-color: #ccc;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
+}
+
+.tab-content div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    min-height: 50px;
+}
+
+.tone-button {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+    cursor: pointer;
+    text-align: center;
+    min-width: 80px;
+    transition: background-color 0.1s, transform 0.1s;
+}
+
+.tone-button.playing,
+.tone-button.assigning {
+    background-color: #add8e6; /* Light blue */
+    transform: scale(0.95);
+}
+
+.tone-button span {
+    display: block;
+    font-size: 0.8em;
+    color: #555;
+}
+
+.tone-button.unassigned {
+    border-style: dashed;
+}
+
+
+.controls-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.controls-container label {
+    width: auto; /* Override general label width */
+}
+
+.delete-btn {
+    color: #ff0000;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 1.2em;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.delete-btn:hover {
+    background-color: #ffdddd;
+}
+
+#clearAllContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#clearAllButton {
+    background-color: #d9534f; /* Reddish color for destructive action */
+}
+
+#clearAllButton:hover {
+    background-color: #c9302c;
+}
+
+
+.visualizer-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.visualizer-container h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #555;
+    text-align: center;
+}
+
+.visualizer-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.visualizer-container label {
+    width: auto; /* Override general label width */
+}
+
+#audioVisualizerCanvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4; /* Default background, can be overridden in JS if needed */
+}
+

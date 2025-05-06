@@ -1,272 +1,77 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Time Zone Converter</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
-    .clock-container {
-      display: inline-block;
-      margin: 20px;
-      text-align: center;
-    }
-    .clock-face {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      border: 4px solid #333;
-      border-radius: 50%;
-      margin: 0 auto;
-    }
-    /* Точка в центре */
-    .clock-face::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: #333;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    /* Стрелки */
-    .hand {
-      position: absolute;
-      background: #333;
-      transform-origin: bottom; 
-      bottom: 50%;
-      left: 50%;
-    }
-    .hour {
-      width: 4px;
-      height: 50px;
-    }
-    .minute {
-      width: 3px;
-      height: 70px;
-    }
-    .second {
-      width: 2px;
-      height: 80px;
-      background: red;
-    }
-    .digital-time {
-      margin-top: 5px;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    .time-input {
-      margin-top: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #reset-button {
-      display: block;
-      margin: 30px auto;
-      padding: 10px 20px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Tone Keyboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Custom Tone Keyboard</h1>
 
-  <!-- Minsk -->
-  <div class="clock-container">
-    <h3>Minsk (UTC+3)</h3>
-    <div class="clock-face">
-      <div class="hand hour" id="hour-hand-minsk"></div>
-      <div class="hand minute" id="minute-hand-minsk"></div>
-      <div class="hand second" id="second-hand-minsk"></div>
+    <div class="controls-container">
+        <label for="instrumentSelect">Instrument:</label>
+        <select id="instrumentSelect">
+            <option value="sine" selected>Sine</option>
+            <option value="square">Square</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+        </select>
     </div>
-    <div id="digital-minsk" class="digital-time"></div>
-    <input type="time" id="time-input-minsk" class="time-input">
-  </div>
 
-  <!-- Warsaw -->
-  <div class="clock-container">
-    <h3>Warsaw (UTC+1)</h3>
-    <div class="clock-face">
-      <div class="hand hour" id="hour-hand-warsaw"></div>
-      <div class="hand minute" id="minute-hand-warsaw"></div>
-      <div class="hand second" id="second-hand-warsaw"></div>
+    <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'manualCreate')">Manual Create</button>
+        <button class="tab-link" onclick="openTab(event, 'bulkCreate')">Bulk Create</button>
     </div>
-    <div id="digital-warsaw" class="digital-time"></div>
-    <input type="time" id="time-input-warsaw" class="time-input">
-  </div>
 
-  <!-- London -->
-  <div class="clock-container">
-    <h3>London (UTC+0)</h3>
-    <div class="clock-face">
-      <div class="hand hour" id="hour-hand-london"></div>
-      <div class="hand minute" id="minute-hand-london"></div>
-      <div class="hand second" id="second-hand-london"></div>
+    <div id="manualCreate" class="tab-content" style="display: block;">
+        <h2>Create Single Tone Button</h2>
+        <div>
+            <label for="frequency">Frequency (Hz):</label>
+            <input type="number" id="frequency" name="frequency" value="440" min="20" max="20000">
+            <button id="addToneButton">Add Tone Button</button>
+        </div>
+        <p>Click "Add Tone Button", then press the keyboard key you want to assign.</p>
     </div>
-    <div id="digital-london" class="digital-time"></div>
-    <input type="time" id="time-input-london" class="time-input">
-  </div>
 
-  <!-- Vilnius -->
-  <div class="clock-container">
-    <h3>Vilnius (UTC+2)</h3>
-    <div class="clock-face">
-      <div class="hand hour" id="hour-hand-vilnius"></div>
-      <div class="hand minute" id="minute-hand-vilnius"></div>
-      <div class="hand second" id="second-hand-vilnius"></div>
+    <div id="bulkCreate" class="tab-content">
+        <h2>Create Multiple Tone Buttons</h2>
+        <div>
+            <label for="startFrequency">Start Frequency (Hz):</label>
+            <input type="number" id="startFrequency" name="startFrequency" value="261.63" min="20" max="20000"> 
+        </div>
+        <div>
+            <label for="deltaFrequency">Frequency Step (Hz):</label>
+            <input type="number" id="deltaFrequency" name="deltaFrequency" value="32.70"> 
+        </div>
+        <div>
+            <label for="numButtons">Number of Buttons:</label>
+            <input type="number" id="numButtons" name="numButtons" value="10" min="1" max="100">
+        </div>
+        <button id="bulkAddButton">Build Buttons</button>
+        <p>Click "Build Buttons". You can assign keys later by clicking an unassigned button and pressing the desired key.</p>
     </div>
-    <div id="digital-vilnius" class="digital-time"></div>
-    <input type="time" id="time-input-vilnius" class="time-input">
-  </div>
 
-  <!-- Reset button -->
-  <button id="reset-button">Reset to Current Time</button>
+    <div class="visualizer-container">
+        <h2>Audio Visualizer</h2>
+        <div>
+            <label for="vizWidth">Width (px):</label>
+            <input type="number" id="vizWidth" value="300" min="100" max="1000">
+            <label for="vizHeight">Height (px):</label>
+            <input type="number" id="vizHeight" value="100" min="50" max="500">
+        </div>
+        <canvas id="audioVisualizerCanvas"></canvas>
+    </div>
 
-  <script>
-    // Часовые пояса
-    const timeZones = [
-      {
-        city: 'Minsk',
-        offset: 3, // UTC+3
-        hourHand: 'hour-hand-minsk',
-        minuteHand: 'minute-hand-minsk',
-        secondHand: 'second-hand-minsk',
-        digitalId: 'digital-minsk',
-        inputId: 'time-input-minsk'
-      },
-      {
-        city: 'Warsaw',
-        offset: 1, // UTC+1 (учтите, что Польша может переключаться на UTC+2 летом)
-        hourHand: 'hour-hand-warsaw',
-        minuteHand: 'minute-hand-warsaw',
-        secondHand: 'second-hand-warsaw',
-        digitalId: 'digital-warsaw',
-        inputId: 'time-input-warsaw'
-      },
-      {
-        city: 'London',
-        offset: 0, // UTC+0 (в реальности Лондон зимой UTC+0, летом UTC+1)
-        hourHand: 'hour-hand-london',
-        minuteHand: 'minute-hand-london',
-        secondHand: 'second-hand-london',
-        digitalId: 'digital-london',
-        inputId: 'time-input-london'
-      },
-      {
-        city: 'Vilnius',
-        offset: 2, // UTC+2 (Литва обычно зимой UTC+2, летом UTC+3)
-        hourHand: 'hour-hand-vilnius',
-        minuteHand: 'minute-hand-vilnius',
-        secondHand: 'second-hand-vilnius',
-        digitalId: 'digital-vilnius',
-        inputId: 'time-input-vilnius'
-      }
-    ];
+    <h2>Your Tone Buttons</h2>
+    <div id="toneButtonsContainer" class="button-container">
+        <!-- Tone buttons will be added here -->
+    </div>
 
-    // Глобальный сдвиг (в минутах) при ручном вводе
-    let globalOffsetInMinutes = 0;
+    <div id="clearAllContainer">
+        <button id="clearAllButton">Clear All Tones</button>
+    </div>
 
-    // Форматируем часы, минуты, секунды в "HH:MM:SS"
-    function formatTime(h, m, s) {
-      const hh = String(h).padStart(2, '0');
-      const mm = String(m).padStart(2, '0');
-      const ss = String(s).padStart(2, '0');
-      return `${hh}:${mm}:${ss}`;
-    }
-
-    function updateClocks() {
-      // 1) Берём текущее локальное время
-      const nowLocal = new Date();
-
-      // 2) Превращаем его в «истинное» UTC-время,
-      //    убирая локальный часовой пояс пользователя
-      const nowUTC = new Date(nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60000);
-
-      // 3) Для каждого города: UTC + (offset + globalOffset)
-      timeZones.forEach(tz => {
-        // offset (часы) переводим в минуты
-        const tzOffsetInMinutes = tz.offset * 60;
-
-        // Итоговое локальное время в данной зоне
-        const localTime = new Date(
-          nowUTC.getTime() + (tzOffsetInMinutes + globalOffsetInMinutes) * 60000
-        );
-
-        const hours   = localTime.getHours();
-        const minutes = localTime.getMinutes();
-        const seconds = localTime.getSeconds();
-
-        // Угол поворота для каждой стрелки
-        const hourAngle   = ((hours % 12) / 12) * 360 + (minutes / 60) * 30;
-        const minuteAngle = (minutes / 60) * 360;
-        const secondAngle = (seconds / 60) * 360;
-
-        // Обновляем CSS-трансформацию стрелок
-        document.getElementById(tz.hourHand).style.transform   = `rotate(${hourAngle}deg)`;
-        document.getElementById(tz.minuteHand).style.transform = `rotate(${minuteAngle}deg)`;
-        document.getElementById(tz.secondHand).style.transform = `rotate(${secondAngle}deg)`;
-
-        // Обновляем цифровое отображение
-        document.getElementById(tz.digitalId).textContent = formatTime(hours, minutes, seconds);
-      });
-    }
-
-    // Когда пользователь вручную задаёт время в одном из полей
-    function handleTimeInputChange(tz) {
-      const inputValue = document.getElementById(tz.inputId).value;
-      if (!inputValue) return;
-
-      const [hh, mm] = inputValue.split(':').map(Number);
-
-      // Текущее локальное UTC-время (как момент)
-      const nowLocal = new Date();
-      const nowUTC = new Date(nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60000);
-
-      // Текущее время в выбранной зоне (до изменения)
-      const tzOffsetInMinutes = tz.offset * 60;
-      const currentLocalTime = new Date(
-        nowUTC.getTime() + (tzOffsetInMinutes + globalOffsetInMinutes) * 60000
-      );
-
-      // Новое время, которое ввёл пользователь
-      const newLocalTime = new Date(currentLocalTime);
-      newLocalTime.setHours(hh, mm, 0, 0);
-
-      // Разница (в минутах) между новым и старым
-      const diffInMinutes = (newLocalTime - currentLocalTime) / 60000;
-
-      // Прибавляем к глобальному сдвигу
-      globalOffsetInMinutes += diffInMinutes;
-
-      updateClocks();
-    }
-
-    function init() {
-      // Подключаем обработчики ввода
-      timeZones.forEach(tz => {
-        document
-          .getElementById(tz.inputId)
-          .addEventListener('change', () => handleTimeInputChange(tz));
-      });
-
-      // Кнопка сброса
-      document.getElementById('reset-button').addEventListener('click', () => {
-        globalOffsetInMinutes = 0; 
-        updateClocks();
-      });
-
-      // Обновляем каждую секунду
-      setInterval(updateClocks, 1000);
-      updateClocks();
-    }
-
-    window.onload = init;
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
