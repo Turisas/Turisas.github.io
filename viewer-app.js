@@ -95,7 +95,11 @@ function initializeTheme() {
 
 function setTheme(theme, persist = true) {
   document.body.dataset.theme = theme;
-  elements.themeToggle.textContent = theme === "dark" ? "White theme" : "Black theme";
+  const nextTheme = theme === "dark" ? "light" : "dark";
+
+  elements.themeToggle.textContent = theme === "dark" ? "☀" : "☾";
+  elements.themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
+  elements.themeToggle.setAttribute("title", `Switch to ${nextTheme} theme`);
 
   if (persist) {
     localStorage.setItem("saltland-viewer-theme", theme);
@@ -116,7 +120,7 @@ function normalizeSong(song) {
     section: song.section || "Songs",
     tags: Array.isArray(song.tags) ? song.tags : [],
     markdown: typeof song.markdown === "string" ? song.markdown : "",
-    searchText: `${fileLabel} ${title} ${song.section || ""}`.toLowerCase()
+    searchText: `${fileName} ${fileLabel} ${title} ${song.section || ""}`.toLowerCase()
   };
 }
 
@@ -133,7 +137,7 @@ function normalizeInfoPage(page) {
     fileName,
     markdown: typeof page.markdown === "string" ? page.markdown : "",
     isIndex: Boolean(page.isIndex),
-    searchText: `${fileLabel} ${title}`.toLowerCase()
+    searchText: `${fileName} ${fileLabel} ${title}`.toLowerCase()
   };
 }
 
@@ -177,7 +181,7 @@ function renderNavigation() {
   const infoLinks = state.infoPages.map((page) => {
     return renderTreeLink({
       href: page.isIndex ? "#songs" : `#note/${encodeURIComponent(page.id)}`,
-      label: page.fileLabel,
+      label: page.fileName,
       searchText: page.searchText,
       entryKey: `note:${page.id}`
     });
@@ -187,7 +191,7 @@ function renderNavigation() {
     .map((song) => {
       return renderTreeLink({
         href: `#song/${song.id}`,
-        label: song.fileLabel,
+        label: song.fileName,
         searchText: song.searchText,
         entryKey: `song:${song.id}`
       });
@@ -340,7 +344,7 @@ function renderIndexPage() {
   elements.pageKicker.textContent = "";
   elements.pageKicker.classList.add("hidden");
   elements.backLink.classList.add("hidden");
-  document.title = "!Songs - SaltLand";
+  document.title = "!Songs - SaltLand Crew";
 
   elements.pageContent.innerHTML = `
     <section class="note-block">
@@ -355,7 +359,7 @@ function renderNotePage(note, isIndex = false) {
   elements.pageKicker.textContent = isIndex ? "" : "info";
   elements.pageKicker.classList.toggle("hidden", isIndex);
   elements.backLink.classList.toggle("hidden", isIndex);
-  document.title = `${note.title} - SaltLand`;
+  document.title = `${note.title} - SaltLand Crew`;
 
   elements.pageContent.innerHTML = `
     <section class="note-block">
@@ -370,7 +374,7 @@ function renderSongPage(song) {
   elements.pageKicker.textContent = song.section;
   elements.pageKicker.classList.remove("hidden");
   elements.backLink.classList.remove("hidden");
-  document.title = `${song.title} - SaltLand`;
+  document.title = `${song.title} - SaltLand Crew`;
 
   elements.pageContent.innerHTML = `${renderSong(song, false)}<div class="footer-spacer"></div>`;
 }
