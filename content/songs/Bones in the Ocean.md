@@ -1,0 +1,60 @@
+
+>[!QUOTE]+ 🎭  BONES IN THE OCEAN (2013) 
+>🎹: `n/a` 
+ 
+`{01}`
+Oh, I bid farewell to the port and the land
+And I paddle away from brave England's white sands
+To search for my long ago forgotten friends
+To search for the place I hear all sailors end
+
+`{CHORUS}`
+As the souls of the dead fill the space ==of my mind==
+I'll search without sleeping 'til peace I can find
+I fear not the weather, I fear not the sea
+I remember the fallen, do they think of me?
+When ==their bones== in the ocean forever will be
+
+`{02}`
+Plot a course to the night, to a place I once knew
+To a place where my hope died along with my crew
+So I swallow my grief and face life's final test
+To find promise of peace and the solace of rest
+
+`{CHORUS}`
+As the souls of the dead fill the space ==of my ears==
+Their laughter like children, their beckoning cheers
+My heart longs to join them, sing songs of the sea
+I remember the fallen, do they think of me?
+When ==their bones== in the ocean forever will be
+
+`{03}`
+When at last before my ghostly shipmates I stand
+I shed a small tear for my home upon land
+Though their eyes speak of deaths filled with struggle and strife
+Their smiles below say I don't owe them my life
+
+`{CHORUS}`
+As the souls of the dead fill the space ==of my eyes==
+And my boat listed over and tried to capsize
+I'm this far from drowning, this far from the sea
+I remember the living, do they think of me?
+When ==my bones== in the ocean forever will be
+
+`{03} 🔽slow down`
+Now that I'm staring down at the darkest abyss
+I'm not sure what I want, but I don't think it's this
+As my comrades call to stand fast and forge on
+I make sail for the dawn 'til the darkness has gone
+
+`{CHORUS} 🔼speed up`
+As the souls of the dead ==live fore'er in my mind==
+As I live all the years that they left me behind
+I'll stay on the shore but still gaze at the sea
+I remember the fallen and they think of me
+==For our souls== in the ocean together will be
+
+`{OUTRO} ⏬slowly`
+I remember the fallen and they think of me
+For our souls in the ocean together will be
+

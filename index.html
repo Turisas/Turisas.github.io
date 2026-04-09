@@ -1,77 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Tone Keyboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Custom Tone Keyboard</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SaltLand markdown song viewer"
+    />
+    <title>!Songs - SaltLand</title>
+    <link rel="stylesheet" href="viewer.css" />
+    <link rel="stylesheet" href="viewer-theme.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-name" href="#songs">SaltLand</a>
+        <button id="theme-toggle" class="theme-toggle" type="button">Black theme</button>
+      </header>
 
-    <div class="controls-container">
-        <label for="instrumentSelect">Instrument:</label>
-        <select id="instrumentSelect">
-            <option value="sine" selected>Sine</option>
-            <option value="square">Square</option>
-            <option value="sawtooth">Sawtooth</option>
-            <option value="triangle">Triangle</option>
-        </select>
+      <div class="site-body" id="songs">
+        <aside class="sidebar">
+          <div class="sidebar-inner">
+            <label class="search-box">
+              <span class="search-label">Search songs</span>
+              <input id="song-search" class="search-input" type="search" placeholder="Type a song title..." autocomplete="off" />
+            </label>
+            <nav id="song-nav" aria-label="Song navigation"></nav>
+          </div>
+        </aside>
+
+        <main class="page-area">
+          <article class="page">
+            <div class="page-head">
+              <div>
+                <p id="page-kicker" class="page-kicker hidden"></p>
+                <h1 id="page-title" class="page-title">!Songs</h1>
+              </div>
+              <a id="back-link" class="back-link hidden" href="#songs">Back to !Songs</a>
+            </div>
+            <p id="loading-state" class="status">Loading markdown…</p>
+            <div id="page-content" class="hidden" aria-live="polite"></div>
+          </article>
+        </main>
+      </div>
     </div>
 
-    <div class="tabs">
-        <button class="tab-link active" onclick="openTab(event, 'manualCreate')">Manual Create</button>
-        <button class="tab-link" onclick="openTab(event, 'bulkCreate')">Bulk Create</button>
-    </div>
-
-    <div id="manualCreate" class="tab-content" style="display: block;">
-        <h2>Create Single Tone Button</h2>
-        <div>
-            <label for="frequency">Frequency (Hz):</label>
-            <input type="number" id="frequency" name="frequency" value="440" min="20" max="20000">
-            <button id="addToneButton">Add Tone Button</button>
-        </div>
-        <p>Click "Add Tone Button", then press the keyboard key you want to assign.</p>
-    </div>
-
-    <div id="bulkCreate" class="tab-content">
-        <h2>Create Multiple Tone Buttons</h2>
-        <div>
-            <label for="startFrequency">Start Frequency (Hz):</label>
-            <input type="number" id="startFrequency" name="startFrequency" value="261.63" min="20" max="20000"> 
-        </div>
-        <div>
-            <label for="deltaFrequency">Frequency Step (Hz):</label>
-            <input type="number" id="deltaFrequency" name="deltaFrequency" value="32.70"> 
-        </div>
-        <div>
-            <label for="numButtons">Number of Buttons:</label>
-            <input type="number" id="numButtons" name="numButtons" value="10" min="1" max="100">
-        </div>
-        <button id="bulkAddButton">Build Buttons</button>
-        <p>Click "Build Buttons". You can assign keys later by clicking an unassigned button and pressing the desired key.</p>
-    </div>
-
-    <div class="visualizer-container">
-        <h2>Audio Visualizer</h2>
-        <div>
-            <label for="vizWidth">Width (px):</label>
-            <input type="number" id="vizWidth" value="300" min="100" max="1000">
-            <label for="vizHeight">Height (px):</label>
-            <input type="number" id="vizHeight" value="100" min="50" max="500">
-        </div>
-        <canvas id="audioVisualizerCanvas"></canvas>
-    </div>
-
-    <h2>Your Tone Buttons</h2>
-    <div id="toneButtonsContainer" class="button-container">
-        <!-- Tone buttons will be added here -->
-    </div>
-
-    <div id="clearAllContainer">
-        <button id="clearAllButton">Clear All Tones</button>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+    <script src="songs-data.js"></script>
+    <script src="viewer-app.js" defer></script>
+  </body>
 </html>
