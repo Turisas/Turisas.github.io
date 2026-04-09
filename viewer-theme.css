@@ -93,7 +93,7 @@ body[data-theme="dark"] .site-header {
   border-color: var(--interactive-accent);
 }
 
-.nav-group.hidden,
+.tree-folder.hidden,
 .nav-link.hidden {
   display: none;
 }

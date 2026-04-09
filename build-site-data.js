@@ -22,7 +22,9 @@ function main() {
   assertDirectoryExists(infoDir, "Info directory");
   assertDirectoryExists(songsDir, "Songs directory");
 
-  const indexMarkdown = fs.readFileSync(indexPath, "utf8");
+  const infoPages = readInfoRecords();
+  const indexPage = infoPages.find((page) => page.isIndex);
+  const indexMarkdown = indexPage ? indexPage.markdown : fs.readFileSync(indexPath, "utf8");
   const songRecords = readSongRecords();
   const recordsByLookupKey = buildRecordLookup(songRecords);
   const warnings = [];
@@ -39,12 +41,13 @@ function main() {
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
   fs.writeFileSync(
     bundledDataPath,
-    `window.SONGS_DATA = ${JSON.stringify({ indexMarkdown, songs: bundledSongs })};\n`,
+    `window.SONGS_DATA = ${JSON.stringify({ indexMarkdown, songs: bundledSongs, infoPages })};\n`,
     "utf8"
   );
 
   console.log(`Content root: ${path.relative(rootDir, contentDir) || "."}`);
   console.log(`Index note: ${path.relative(rootDir, indexPath)}`);
+  console.log(`Info markdown files: ${infoPages.length}`);
   console.log(`Song markdown files: ${songRecords.length}`);
   console.log(`Manifest entries: ${manifest.length}`);
   console.log("Updated songs-manifest.json and songs-data.js");
@@ -54,6 +57,34 @@ function main() {
     console.log("Warnings:");
     warnings.forEach((warning) => console.log(`- ${warning}`));
   }
+}
+
+function readInfoRecords() {
+  return fs
+    .readdirSync(infoDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && /\.md$/i.test(entry.name))
+    .map((entry) => {
+      const absolutePath = path.join(infoDir, entry.name);
+      const markdown = fs.readFileSync(absolutePath, "utf8");
+      const stem = entry.name.replace(/\.md$/i, "");
+      const isIndex = path.normalize(absolutePath) === path.normalize(indexPath);
+
+      return {
+        id: createNoteId(path.relative(contentDir, absolutePath)),
+        title: formatInfoTitle(stem, isIndex),
+        label: entry.name,
+        file: toPosixPath(path.relative(rootDir, absolutePath)),
+        markdown,
+        isIndex
+      };
+    })
+    .sort((left, right) => {
+      if (left.isIndex !== right.isIndex) {
+        return left.isIndex ? -1 : 1;
+      }
+
+      return left.label.localeCompare(right.label, undefined, { sensitivity: "base" });
+    });
 }
 
 function readSongRecords() {
@@ -215,6 +246,20 @@ function extractTags(line, section, stem) {
 
 function inferFallbackSection(record) {
   return record.stem.includes("🅱️") ? "B-side" : "Additional songs";
+}
+
+function createNoteId(relativePath) {
+  return toPosixPath(relativePath).replace(/\.md$/i, "");
+}
+
+function formatInfoTitle(stem, isIndex) {
+  if (isIndex) {
+    return "!Songs";
+  }
+
+  return stem
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\p{L}/gu, (match) => match.toUpperCase());
 }
 
 function stripBadgeSuffix(value) {

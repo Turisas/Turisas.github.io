@@ -1,7 +1,13 @@
 const state = {
   songs: [],
+  infoPages: [],
   songLookup: new Map(),
-  query: ""
+  noteLookup: new Map(),
+  query: "",
+  openFolders: {
+    info: true,
+    songs: true
+  }
 };
 
 const elements = {
@@ -27,7 +33,9 @@ function initialize() {
     }
 
     state.songs = window.SONGS_DATA.songs.map(normalizeSong);
+    state.infoPages = Array.isArray(window.SONGS_DATA.infoPages) ? window.SONGS_DATA.infoPages.map(normalizeInfoPage) : [];
     state.songLookup = buildSongLookup(state.songs);
+    state.noteLookup = buildNoteLookup(state.infoPages);
 
     initializeTheme();
     initializeControls();
@@ -65,6 +73,13 @@ function initializeControls() {
 
   elements.mobileNavBackdrop.addEventListener("click", closeMobileNav);
   elements.songNav.addEventListener("click", (event) => {
+    const folderToggle = event.target.closest("[data-folder-toggle]");
+
+    if (folderToggle) {
+      toggleFolder(folderToggle.dataset.folderId);
+      return;
+    }
+
     if (event.target.closest(".nav-link")) {
       closeMobileNav();
     }
@@ -88,17 +103,37 @@ function setTheme(theme, persist = true) {
 }
 
 function normalizeSong(song) {
-  const fileName = song.file.split("/").pop().replace(/\.md$/i, "");
+  const fileLabel = song.file.split("/").pop();
+  const fileName = fileLabel.replace(/\.md$/i, "");
   const title = song.title || fileName;
 
   return {
     ...song,
     title,
+    fileLabel,
     fileName,
     id: slugify(title),
     section: song.section || "Songs",
     tags: Array.isArray(song.tags) ? song.tags : [],
-    markdown: typeof song.markdown === "string" ? song.markdown : ""
+    markdown: typeof song.markdown === "string" ? song.markdown : "",
+    searchText: `${fileLabel} ${title} ${song.section || ""}`.toLowerCase()
+  };
+}
+
+function normalizeInfoPage(page) {
+  const fileLabel = page.label || page.file.split("/").pop();
+  const fileName = fileLabel.replace(/\.md$/i, "");
+  const title = page.title || fileName;
+
+  return {
+    ...page,
+    id: page.id || fileName,
+    title,
+    fileLabel,
+    fileName,
+    markdown: typeof page.markdown === "string" ? page.markdown : "",
+    isIndex: Boolean(page.isIndex),
+    searchText: `${fileLabel} ${title}`.toLowerCase()
   };
 }
 
@@ -120,41 +155,93 @@ function buildSongLookup(songs) {
   return lookup;
 }
 
+function buildNoteLookup(pages) {
+  const lookup = new Map();
+
+  for (const page of pages) {
+    const variants = [page.id, page.title, page.fileName, page.fileLabel];
+
+    for (const variant of variants) {
+      const key = normalizeLookupKey(variant);
+
+      if (key && !lookup.has(key)) {
+        lookup.set(key, page);
+      }
+    }
+  }
+
+  return lookup;
+}
+
 function renderNavigation() {
-  const groups = groupSongsBySection(state.songs);
+  const infoLinks = state.infoPages.map((page) => {
+    return renderTreeLink({
+      href: page.isIndex ? "#songs" : `#note/${encodeURIComponent(page.id)}`,
+      label: page.fileLabel,
+      searchText: page.searchText,
+      entryKey: `note:${page.id}`
+    });
+  });
+  const songLinks = [...state.songs]
+    .sort((left, right) => left.fileLabel.localeCompare(right.fileLabel, undefined, { sensitivity: "base" }))
+    .map((song) => {
+      return renderTreeLink({
+        href: `#song/${song.id}`,
+        label: song.fileLabel,
+        searchText: song.searchText,
+        entryKey: `song:${song.id}`
+      });
+    });
 
-  elements.songNav.innerHTML = groups
-    .map(([sectionName, songs]) => {
-      const links = songs
-        .map(
-          (song) => `
-            <a class="nav-link" href="#song/${song.id}" data-song-id="${song.id}" data-title="${escapeAttribute(song.title.toLowerCase())}">${escapeHtml(song.title)}</a>
-          `
-        )
-        .join("");
+  elements.songNav.innerHTML = [renderTreeFolder("info", "info", infoLinks), renderTreeFolder("songs", "songs", songLinks)].join("");
 
-      return `
-        <section class="nav-group">
-          <h2 class="nav-group-title">${escapeHtml(sectionName)}</h2>
-          ${links}
-        </section>
-      `;
-    })
-    .join("");
+  filterNavigation();
+}
 
+function renderTreeFolder(folderId, label, links) {
+  return `
+    <section class="tree-folder" data-folder-id="${folderId}">
+      <button class="tree-folder-toggle" type="button" data-folder-toggle data-folder-id="${folderId}" aria-expanded="${String(isFolderOpen(folderId))}">
+        <span class="tree-folder-caret" aria-hidden="true">▾</span>
+        <span class="tree-folder-name">${escapeHtml(label)}</span>
+      </button>
+      <div class="tree-folder-children">
+        ${links.join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderTreeLink({ href, label, searchText, entryKey }) {
+  return `
+    <a class="nav-link tree-file-link" href="${href}" data-entry-key="${escapeAttribute(entryKey)}" data-search="${escapeAttribute(searchText)}">${escapeHtml(label)}</a>
+  `;
+}
+
+function isFolderOpen(folderId) {
+  return state.openFolders[folderId] !== false;
+}
+
+function toggleFolder(folderId) {
+  state.openFolders[folderId] = !isFolderOpen(folderId);
   filterNavigation();
 }
 
 function renderCurrentRoute() {
   const route = parseRoute(location.hash);
   const song = route.songId ? findSongById(route.songId) : null;
+  const note = route.noteId ? findNoteById(route.noteId) : null;
+  const indexPage = getIndexPage();
 
   if (song) {
     renderSongPage(song);
-    markActiveSong(song.id);
+    markActiveEntry(`song:${song.id}`);
+  } else if (note && !note.isIndex) {
+    renderNotePage(note);
+    markActiveEntry(`note:${note.id}`);
   } else {
     renderIndexPage();
-    markActiveSong("");
+    markActiveEntry(indexPage ? `note:${indexPage.id}` : "");
   }
 
   filterNavigation();
@@ -208,18 +295,23 @@ function syncMobileNavState() {
 function parseRoute(hash) {
   const value = hash || "#songs";
   const songMatch = value.match(/^#song\/(.+)$/);
+  const noteMatch = value.match(/^#note\/(.+)$/);
 
   if (songMatch) {
-    return { type: "song", songId: decodeURIComponent(songMatch[1]) };
+    return { type: "song", songId: decodeURIComponent(songMatch[1]), noteId: "" };
+  }
+
+  if (noteMatch) {
+    return { type: "note", songId: "", noteId: decodeURIComponent(noteMatch[1]) };
   }
 
   const fallbackMatch = value.match(/^#([\p{L}\p{N}-]+)$/u);
 
   if (fallbackMatch && fallbackMatch[1] !== "songs") {
-    return { type: "song", songId: fallbackMatch[1] };
+    return { type: "song", songId: fallbackMatch[1], noteId: "" };
   }
 
-  return { type: "index", songId: "" };
+  return { type: "index", songId: "", noteId: "" };
 }
 
 function findSongById(songId) {
@@ -227,7 +319,23 @@ function findSongById(songId) {
   return state.songLookup.get(normalized) || null;
 }
 
+function findNoteById(noteId) {
+  const normalized = normalizeLookupKey(noteId);
+  return state.noteLookup.get(normalized) || null;
+}
+
+function getIndexPage() {
+  return state.infoPages.find((page) => page.isIndex) || null;
+}
+
 function renderIndexPage() {
+  const indexPage = getIndexPage();
+
+  if (indexPage) {
+    renderNotePage(indexPage, true);
+    return;
+  }
+
   elements.pageTitle.textContent = "!Songs";
   elements.pageKicker.textContent = "";
   elements.pageKicker.classList.add("hidden");
@@ -237,6 +345,21 @@ function renderIndexPage() {
   elements.pageContent.innerHTML = `
     <section class="note-block">
       ${renderIndexMarkdown(window.SONGS_DATA.indexMarkdown || "")}
+    </section>
+    <div class="footer-spacer"></div>
+  `;
+}
+
+function renderNotePage(note, isIndex = false) {
+  elements.pageTitle.textContent = note.title;
+  elements.pageKicker.textContent = isIndex ? "" : "info";
+  elements.pageKicker.classList.toggle("hidden", isIndex);
+  elements.backLink.classList.toggle("hidden", isIndex);
+  document.title = `${note.title} - SaltLand`;
+
+  elements.pageContent.innerHTML = `
+    <section class="note-block">
+      ${renderIndexMarkdown(note.markdown || "")}
     </section>
     <div class="footer-spacer"></div>
   `;
@@ -488,14 +611,16 @@ function renderInlineMarkdown(text) {
   let html = escapeHtml(prepared);
 
   html = html.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, label) => {
-    const resolved = resolveSongTarget(target);
+    const resolved = resolveContentTarget(target);
     const linkLabel = label || target;
 
     if (!resolved) {
       return escapeHtml(linkLabel);
     }
 
-    return `<a class="markdown-link" href="#song/${resolved.id}">${escapeHtml(linkLabel)}</a>`;
+    const href = resolved.kind === "song" ? `#song/${resolved.id}` : resolved.isIndex ? "#songs" : `#note/${encodeURIComponent(resolved.id)}`;
+
+    return `<a class="markdown-link" href="${href}">${escapeHtml(linkLabel)}</a>`;
   });
   html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (_, label, url) => {
     return `<a class="markdown-link" href="${url}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
@@ -509,9 +634,22 @@ function renderInlineMarkdown(text) {
   return html;
 }
 
+function resolveContentTarget(rawTarget) {
+  return resolveSongTarget(rawTarget) || resolveNoteTarget(rawTarget);
+}
+
 function resolveSongTarget(rawTarget) {
   const key = normalizeLookupKey(rawTarget);
-  return state.songLookup.get(key) || null;
+  const song = state.songLookup.get(key);
+
+  return song ? { ...song, kind: "song" } : null;
+}
+
+function resolveNoteTarget(rawTarget) {
+  const key = normalizeLookupKey(rawTarget);
+  const note = state.noteLookup.get(key);
+
+  return note ? { ...note, kind: "note" } : null;
 }
 
 function normalizeLookupKey(value) {
@@ -542,20 +680,25 @@ function groupSongsBySection(songs) {
 function filterNavigation() {
   const query = state.query;
 
-  for (const link of elements.songNav.querySelectorAll(".nav-link")) {
-    const matches = !query || link.dataset.title.includes(query);
+  for (const link of elements.songNav.querySelectorAll(".tree-file-link")) {
+    const matches = !query || link.dataset.search.includes(query);
     link.classList.toggle("hidden", !matches);
   }
 
-  for (const group of elements.songNav.querySelectorAll(".nav-group")) {
-    const visibleLinks = group.querySelectorAll(".nav-link:not(.hidden)").length;
-    group.classList.toggle("hidden", visibleLinks === 0);
+  for (const folder of elements.songNav.querySelectorAll(".tree-folder")) {
+    const visibleLinks = folder.querySelectorAll(".tree-file-link:not(.hidden)").length;
+    const folderId = folder.dataset.folderId;
+    const expanded = query ? visibleLinks > 0 : isFolderOpen(folderId);
+
+    folder.classList.toggle("hidden", visibleLinks === 0);
+    folder.classList.toggle("collapsed", !expanded);
+    folder.querySelector(".tree-folder-toggle").setAttribute("aria-expanded", String(expanded));
   }
 }
 
-function markActiveSong(songId) {
+function markActiveEntry(entryKey) {
   for (const link of elements.songNav.querySelectorAll(".nav-link")) {
-    link.classList.toggle("active", songId && link.dataset.songId === songId);
+    link.classList.toggle("active", Boolean(entryKey) && link.dataset.entryKey === entryKey);
   }
 }
 
