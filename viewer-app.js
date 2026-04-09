@@ -12,7 +12,10 @@ const elements = {
   pageKicker: document.getElementById("page-kicker"),
   backLink: document.getElementById("back-link"),
   themeToggle: document.getElementById("theme-toggle"),
-  searchInput: document.getElementById("song-search")
+  searchInput: document.getElementById("song-search"),
+  mobileNavToggle: document.getElementById("mobile-nav-toggle"),
+  mobileNavBackdrop: document.getElementById("mobile-nav-backdrop"),
+  songSidebar: document.getElementById("song-sidebar")
 };
 
 initialize();
@@ -37,7 +40,9 @@ function initialize() {
 }
 
 function initializeControls() {
-  window.addEventListener("hashchange", renderCurrentRoute);
+  window.addEventListener("hashchange", handleHashChange);
+  window.addEventListener("resize", syncMobileNavState);
+  document.addEventListener("keydown", handleDocumentKeydown);
 
   elements.searchInput.addEventListener("input", (event) => {
     state.query = event.target.value.trim().toLowerCase();
@@ -48,6 +53,24 @@ function initializeControls() {
     const currentTheme = document.body.dataset.theme === "dark" ? "dark" : "light";
     setTheme(currentTheme === "dark" ? "light" : "dark");
   });
+
+  elements.mobileNavToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("nav-open")) {
+      closeMobileNav();
+      return;
+    }
+
+    openMobileNav();
+  });
+
+  elements.mobileNavBackdrop.addEventListener("click", closeMobileNav);
+  elements.songNav.addEventListener("click", (event) => {
+    if (event.target.closest(".nav-link")) {
+      closeMobileNav();
+    }
+  });
+
+  syncMobileNavState();
 }
 
 function initializeTheme() {
@@ -135,7 +158,51 @@ function renderCurrentRoute() {
   }
 
   filterNavigation();
+  closeMobileNav();
   window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+}
+
+function handleHashChange() {
+  renderCurrentRoute();
+}
+
+function handleDocumentKeydown(event) {
+  if (event.key === "Escape") {
+    closeMobileNav();
+  }
+}
+
+function isMobileViewport() {
+  return window.matchMedia("(max-width: 900px)").matches;
+}
+
+function openMobileNav() {
+  if (!isMobileViewport()) {
+    return;
+  }
+
+  document.body.classList.add("nav-open");
+  syncMobileNavState();
+  elements.searchInput.focus({ preventScroll: true });
+}
+
+function closeMobileNav() {
+  document.body.classList.remove("nav-open");
+  syncMobileNavState();
+}
+
+function syncMobileNavState() {
+  const isMobile = isMobileViewport();
+  const isOpen = isMobile && document.body.classList.contains("nav-open");
+
+  if (!isMobile) {
+    document.body.classList.remove("nav-open");
+  }
+
+  elements.mobileNavToggle.hidden = !isMobile;
+  elements.mobileNavToggle.setAttribute("aria-expanded", String(isOpen));
+  elements.songSidebar.setAttribute("aria-hidden", String(isMobile && !isOpen));
+  elements.mobileNavBackdrop.hidden = !isMobile;
 }
 
 function parseRoute(hash) {

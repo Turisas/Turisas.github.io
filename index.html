@@ -14,12 +14,18 @@
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="site-name" href="#songs">SaltLand</a>
-        <button id="theme-toggle" class="theme-toggle" type="button">Black theme</button>
+        <div class="site-header-start">
+          <button id="mobile-nav-toggle" class="mobile-nav-toggle" type="button" aria-controls="song-sidebar" aria-expanded="false">Songs</button>
+          <a class="site-name" href="#songs">SaltLand</a>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="theme-toggle" type="button">Black theme</button>
+        </div>
       </header>
+      <button id="mobile-nav-backdrop" class="mobile-nav-backdrop" type="button" aria-label="Close song navigation"></button>
 
       <div class="site-body" id="songs">
-        <aside class="sidebar">
+        <aside id="song-sidebar" class="sidebar" aria-label="Song library">
           <div class="sidebar-inner">
             <label class="search-box">
               <span class="search-label">Search songs</span>
