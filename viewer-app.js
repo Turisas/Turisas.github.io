@@ -274,7 +274,6 @@ function openMobileNav() {
 
   document.body.classList.add("nav-open");
   syncMobileNavState();
-  elements.searchInput.focus({ preventScroll: true });
 }
 
 function closeMobileNav() {
