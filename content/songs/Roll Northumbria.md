@@ -3,7 +3,8 @@
 >🎹: `n/a` 
 
 >[!WARNING]- 
-> ☑️ Поправить "Roll on" в ТГ
+> ☑️ ? Тональности
+
 
 `{01}`
 'Twas late 65 at the old wall sea yard
@@ -38,14 +39,14 @@ And it's one for the hot sun above
 Two for the empire we love
 And it's three for the fire that burns down below
 
-Roll- on- Northumbria!
+⚠️Roll- on- Northumbria!
 Roll, Northumbria, Roll
 
 And it's one for the hot sun above
 Two for the empire we love
 And it's three for the fire that burns down below
 
-Roll- on- Northumbria!
+⚠️Roll- on- Northumbria!
 Roll, Northumbria, Roll
 
 `{03}`

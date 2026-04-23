@@ -2,6 +2,7 @@
 >[!QUOTE]+ THE CRUEL WARS
 >🎹: `n/a` 
 
+
 `{01}`
 A recruiting sergeant came our way
 From the inn near town at the close of day

@@ -4,9 +4,8 @@
 📖: [\[wiki\] The Foggy Dew](https://en.wikipedia.org/wiki/The_Foggy_Dew_(Irish_songs))
 📖: [The Foggy Dew Meaning and Lyrics: The History of an Irish Rebel Song](https://www.o-em.org/index.php/fieldwork/62-the-foggy-dew-processes-of-change-in-an-irish-rebel-song)
 
->[!WARNING]- 
-> ☑️ Добавить {04-05} куплеты в ТГ
-  
+>[!WARNING]-
+>☑ Разбить на доп.строки
   
 `{01}`
 As down the glen one Easter morn to a city fair rode I.

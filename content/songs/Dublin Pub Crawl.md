@@ -4,7 +4,8 @@
 >
 >(YT) [The Dublin Pub Crawl (The Irish Rovers)](https://youtu.be/EUNf5svCTiY?si=_1-Qi4cVFZEwKs7K)
 
->[!TIP]+ 
+>[!WARNING]-
+> ? тональности?
 > {❗} 01-06 начинать ниже
 > {❗} 12 ⏫ускоряемся в конце x1.5
 > ..

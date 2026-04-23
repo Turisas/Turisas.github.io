@@ -2,8 +2,6 @@
 >[!QUOTE]+ HAUL AWAY JOE 
 >🎹: `n/a` 
 
->[!WARNING]- 
-> ☑️ Поправить {02} в ТГ (Bristol+Belarus)
 
 `{01} shantyman + (REFRAIN)`
 ***When I was just a little lad or so me mammy told me***

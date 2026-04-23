@@ -2,6 +2,7 @@
 >[!QUOTE]- LEAVE HER JOHNY `[D]`
 >🎹: `[D]` 
 
+
 `{01}`
 I thought I heard the Old Man say:
 "Leave her, Johnny, leave her."

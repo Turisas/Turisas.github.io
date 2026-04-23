@@ -4,6 +4,7 @@
 >
 > (YT) [Some Say the Devil is Dead (The Wolfe Tones)](https://youtu.be/fLjHDMBqDEQ?si=qJT_AREd4enEFlJ0)
 
+
 `{CHORUS}`
 Some say the devil is dead, the devil is dead, the devil is dead
 Some say the devil is dead and buried in Killarney

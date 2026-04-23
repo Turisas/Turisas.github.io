@@ -2,6 +2,7 @@
 >[!QUOTE]- OLD MAUI `[Em]`
 >🎹: `[Em]` 
 
+
 `{01}`
 It's a damn tough life full of toil and strife
 We whalermen undergo. ❗

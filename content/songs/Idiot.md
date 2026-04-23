@@ -2,6 +2,10 @@
 >[!QUOTE]+ IDIOT
 >🎹: `n/a` 
 
+>[!WARNING]- 
+> ☑️ Аккорды
+
+
 `{01}`
 I often take these night shift walks when the foreman's not around.
 I turn my back on the cooling stacks and make for open ground.
