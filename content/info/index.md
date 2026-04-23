@@ -2,10 +2,14 @@
 
 [[16 Tons]] 
 [[All for Me Grog]] (`🆕`) 
+[[Barley Mow]] (`🆕`) 
+[[Barrett's Privateers]] (`🆕`)
 [[Bay of Suvla]] 
 [[Bella ciao]] 
-[[Bones In The Ocean]] (`🅰️`) 
+[[Bones In The Ocean]] (`🅰️`)
+[[Bully in the Alley]] (`🆕`)
 [[Chemical Worker's Song]] 
+[[Cielito Lindo]] (`🆕`)
 [[Come Out Ye Black and Tans]] 
 [[Cruel Wars]] (`🆕`) 
 [[Drunken Sailor]] 
@@ -14,7 +18,7 @@
 [[Foggy Dew]] 
 [[General Taylor]] (`🅰️`) 
 [[Haul Away Joe]] (`🅰️`)
-[[Here’s a Health (to the Company)]] (`🆕`) 
+[[Health (to the Company)]] (`🆕`) 
 [[Hoist the Colours]] 
 [[Horse Soldier]] 
 [[House Carpenter]] 
@@ -24,35 +28,38 @@ Join the British Army (`🆕`)
 [[John Kanaka]] (`🆕🅰️`) 
 [[Johnny I Hardly Knew Ye]]
 [[Leave Her Johnny]] 
-[[Lowlands]] (`🆕🅰️`) 
+[[Lowlands]] (`🅰️`) 
 [[Mingulay Boat Song]] (`🆕🅰️`) 
 [[Misty Mountains]] 
 [[My Mother Told Me (Song of the Vikings)]] 
 [[Oak, Ash, and Thorn]] 
 [[Old Maui]] 
+[[Oro Se Do Bheatha Abhaile]] (`🆕`)
 [[Parting Glass]] (`🆕`) 
 [[Randy Dandy-O]] 
-[[Retirement Song]] (`🆕🅰️`) 
+[[Retirement Song]] (`🆕`) 
 Rising of the Moon (`🆕`) 
-[[Rocky Road to Dublin]] (`🅰️`) 
+[[Rocky Road to Dublin]] (`🆕🅰️`) 
 [[Roll Northumbria]] 
 [[Roll the Old Chariot]] 
 [[Santiana]] 
-[[Star of the County Down]] (`🆕`) 
 [[Some Say the Devil is Dead]] (`🆕`) 
+[[Star of the County Down]] (`🆕`) 
 [[Up Among the Heather]] 
 [[Valhalla Calling]] 
 [[Wellerman]] 
-[[Wild Mountain Thyme]] (`🅰️`) 
 [[Whiskey in the Jar]] (`🆕`) 
+[[Wild Mountain Thyme]] (`🅰️`) 
 [[You and Me and the Devil Makes Three]] 
 
 >[!TLDR] B-side
->Hurt (Johnny Cash) 
->One (Johnny Cash) 
->Otherside (Red Hot Chili Peppers) 
->Paint It, Black (The Rolling Stones) 
->[[Rose Tattoo (🅱️)]] (Dropkick Murphys)
+
+Hurt (Johnny Cash) 
+One (Johnny Cash) 
+Otherside (Red Hot Chili Peppers) 
+Paint It, Black (The Rolling Stones) 
+[[Rose Tattoo (🅱️)]] (Dropkick Murphys)
 
 `🆕 ` — новый материал (~3 мес) 
 `🅰️ ` — а капелла 
+

@@ -2,6 +2,7 @@
 >[!QUOTE]+ ROSE TATTOO
 >🎹: `n/a` 
 
+
 `{01}`
 The pictures tell the story
 This life has many shades

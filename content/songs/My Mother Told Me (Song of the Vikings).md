@@ -2,6 +2,7 @@
 >[!QUOTE]- MY MOTHER TOLD ME `[Am→Em]`
 >🎹: `[Am]` → `[?]` → `[Em]`
 
+
 My mother told me  
 Someday I will buy  
 Galleys with good oars  
