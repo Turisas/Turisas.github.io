@@ -14,6 +14,22 @@
     ]
   },
   {
+    "title": "Barley Mow",
+    "file": "content/songs/Barley Mow.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "new"
+    ]
+  },
+  {
+    "title": "Barrett's Privateers",
+    "file": "content/songs/Barrett's Privateers.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "new"
+    ]
+  },
+  {
     "title": "Bay of Suvla",
     "file": "content/songs/Bay of Suvla.md",
     "section": "2026 (Q2)",
@@ -34,10 +50,26 @@
     ]
   },
   {
+    "title": "Bully in the Alley",
+    "file": "content/songs/Bully in the Alley.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "new"
+    ]
+  },
+  {
     "title": "Chemical Worker's Song",
     "file": "content/songs/Chemical Worker's Song.md",
     "section": "2026 (Q2)",
     "tags": []
+  },
+  {
+    "title": "Cielito Lindo",
+    "file": "content/songs/Cielito Lindo.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "new"
+    ]
   },
   {
     "title": "Come Out Ye Black and Tans",
@@ -99,8 +131,8 @@
     ]
   },
   {
-    "title": "Here’s a Health (to the Company)",
-    "file": "content/songs/Here’s a Health (to the Company).md",
+    "title": "Health (to the Company)",
+    "file": "content/songs/Health (to the Company).md",
     "section": "2026 (Q2)",
     "tags": [
       "new"
@@ -164,7 +196,6 @@
     "file": "content/songs/Lowlands.md",
     "section": "2026 (Q2)",
     "tags": [
-      "new",
       "acapella"
     ]
   },
@@ -202,6 +233,14 @@
     "tags": []
   },
   {
+    "title": "Oro se do bheatha abhaile",
+    "file": "content/songs/Oro se do bheatha abhaile.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "new"
+    ]
+  },
+  {
     "title": "Parting Glass",
     "file": "content/songs/Parting Glass.md",
     "section": "2026 (Q2)",
@@ -220,8 +259,7 @@
     "file": "content/songs/Retirement Song.md",
     "section": "2026 (Q2)",
     "tags": [
-      "new",
-      "acapella"
+      "new"
     ]
   },
   {
@@ -229,6 +267,7 @@
     "file": "content/songs/Rocky Road to Dublin.md",
     "section": "2026 (Q2)",
     "tags": [
+      "new",
       "acapella"
     ]
   },
@@ -251,16 +290,16 @@
     "tags": []
   },
   {
-    "title": "Star of the County Down",
-    "file": "content/songs/Star of the County Down.md",
+    "title": "Some Say the Devil is Dead",
+    "file": "content/songs/Some Say the Devil is Dead.md",
     "section": "2026 (Q2)",
     "tags": [
       "new"
     ]
   },
   {
-    "title": "Some Say the Devil is Dead",
-    "file": "content/songs/Some Say the Devil is Dead.md",
+    "title": "Star of the County Down",
+    "file": "content/songs/Star of the County Down.md",
     "section": "2026 (Q2)",
     "tags": [
       "new"
@@ -285,19 +324,19 @@
     "tags": []
   },
   {
-    "title": "Wild Mountain Thyme",
-    "file": "content/songs/Wild Mountain Thyme.md",
-    "section": "2026 (Q2)",
-    "tags": [
-      "acapella"
-    ]
-  },
-  {
     "title": "Whiskey in the Jar",
     "file": "content/songs/Whiskey in the Jar.md",
     "section": "2026 (Q2)",
     "tags": [
       "new"
+    ]
+  },
+  {
+    "title": "Wild Mountain Thyme",
+    "file": "content/songs/Wild Mountain Thyme.md",
+    "section": "2026 (Q2)",
+    "tags": [
+      "acapella"
     ]
   },
   {
@@ -315,26 +354,8 @@
     ]
   },
   {
-    "title": "Barley Mow",
-    "file": "content/songs/Barley Mow.md",
-    "section": "Additional songs",
-    "tags": []
-  },
-  {
-    "title": "Barrett's Privateers",
-    "file": "content/songs/Barrett's Privateers.md",
-    "section": "Additional songs",
-    "tags": []
-  },
-  {
-    "title": "Bully in the Alley",
-    "file": "content/songs/Bully in the Alley.md",
-    "section": "Additional songs",
-    "tags": []
-  },
-  {
-    "title": "Oro se do bheatha abhaile",
-    "file": "content/songs/Oro se do bheatha abhaile.md",
+    "title": "Here’s a Health (to the Company)",
+    "file": "content/songs/Here’s a Health (to the Company).md",
     "section": "Additional songs",
     "tags": []
   },
