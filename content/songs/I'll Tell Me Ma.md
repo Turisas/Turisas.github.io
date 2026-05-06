@@ -1,6 +1,7 @@
 
 >[!QUOTE]+ 🇮🇪 I'LL TELL ME MA (The Wind, The Belle of Belfast City)
 >🎹: `n/a` 
+>
 >📖: [I'll Tell Me Ma](https://en.wikipedia.org/wiki/I%27ll_Tell_Me_Ma) 
 >
 >(YT) [I'll Tell Me Ma (the Dubliners)](https://youtu.be/1clG4QckaqA?si=PMBxJOiguYOWgCXU)
@@ -17,7 +18,8 @@ She is handsome, she is pretty
 She is the belle of Dublin city  
 She is courtin' one, two, three  
 Please won't you tell me, who is she?  
-  
+
+
 `{01}`
 Albert Mooney says he loves her  
 And all the boys are fightin' for her  
@@ -39,6 +41,7 @@ She is the belle of Dublin city
 She is courtin' one, two, three  
 Please won't you tell me, who is she?  
   
+
 `{02}`
 Let The wind and the rain and the hail blow high  
 Snow come shovelin' from the sky  
@@ -60,6 +63,7 @@ She is the belle of Dublin city
 She is courtin' one, two, three  
 Please won't you tell me, who is she?  
   
+
 `{03}`
 Albert Mooney says he loves her  
 And all the boys are fightin' for her  

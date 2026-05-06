@@ -51,7 +51,7 @@
   },
   {
     "title": "Bully in the Alley",
-    "file": "content/songs/Bully in the Alley.md",
+    "file": "content/songs/Bully in the Alley (🆕).md",
     "section": "2026 (Q2)",
     "tags": [
       "new"
@@ -354,10 +354,36 @@
     ]
   },
   {
+    "title": "Bully in the Alley",
+    "file": "content/songs/Bully in the Alley.md",
+    "section": "Additional songs",
+    "tags": []
+  },
+  {
+    "title": "Don't Forget Your Old Shipmate",
+    "file": "content/songs/Don't Forget Your Old Shipmate.md",
+    "section": "Additional songs",
+    "tags": []
+  },
+  {
+    "title": "Health to the Company",
+    "file": "content/songs/Health to the Company.md",
+    "section": "Additional songs",
+    "tags": []
+  },
+  {
     "title": "Here’s a Health (to the Company)",
     "file": "content/songs/Here’s a Health (to the Company).md",
     "section": "Additional songs",
     "tags": []
+  },
+  {
+    "title": "Off to Sea",
+    "file": "content/songs/Off to Sea (🆕).md",
+    "section": "Additional songs",
+    "tags": [
+      "new"
+    ]
   },
   {
     "title": "Pique la baleine",

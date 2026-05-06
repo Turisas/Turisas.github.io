@@ -2,7 +2,8 @@
 >[!QUOTE]+ 🇮🇪ÓRÓ SÉ DO BHEATHA ABHAILE (19th)
 >🎹: `n/a` 
 >📖: [Óró sé do bheatha abhaile (wiki)](https://en.wikipedia.org/wiki/%C3%93r%C3%B3_s%C3%A9_do_bheatha_abhaile)
-
+>
+>Thx: AlexL
 
 `{01}`
 

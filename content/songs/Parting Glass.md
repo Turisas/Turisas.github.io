@@ -5,14 +5,14 @@
 >📖: [Parting Glass (TLS)](https://thelongestsong.fandom.com/wiki/Parting_Glass)
 >📖: [Some Notes On The History Of "The Parting Glass"](https://www.justanothertune.com/html/partingglass.html)
 >
->(YT) [Parting Glass (The Longest Johns)](https://youtu.be/JJVBTk6Iqk0?si=G3a4rn-t-x51o7yM)
->(YT) [The Parting Glass (The Wellermen)](https://youtu.be/6wxb-XuuaLQ?si=H7RXMMDd7idck7OH)
->(YT) [The Parting Glass (Glen Hansard)](https://youtu.be/sCZcJHAcAZ4?si=cFvhKqEwzXf1WqvJ) 🧑‍🎤
->(YT) [The Parting Glass (Josh Okeefe)](https://youtu.be/3on6H3hOycE?si=yXY9BqtXJr7bV5nG) 🧑‍🎤
->(YT) [Parting Glass (Ed Sheeran)](https://youtu.be/o7PQooSn8OI?si=mSv1C5KnB3gGeztP) 🧑‍🎤
->(YT) [The Parting Glass (Face Vocal Band)](https://youtu.be/2Sql9X4H0VY?si=AQdX-EwzwQqE0Poc)
->(YT) [Parting Glass (The Hight Kings)](https://youtu.be/qMkQExuzL_0?si=H4sXJ_8ML0F1TzOa)
->(YT) [The Parting Glass (Jessica Willis Fisher)](https://youtu.be/3C2n4m_nnFA?si=z6tsyNOzwUnVLlmN) 🧑‍🎤
+>\[YT\] [Parting Glass (The Longest Johns)](https://youtu.be/JJVBTk6Iqk0?si=G3a4rn-t-x51o7yM)
+>\[YT\] [The Parting Glass (The Wellermen)](https://youtu.be/6wxb-XuuaLQ?si=H7RXMMDd7idck7OH)
+>\[YT\] [The Parting Glass (Glen Hansard)](https://youtu.be/sCZcJHAcAZ4?si=cFvhKqEwzXf1WqvJ) 🧑‍🎤
+>\[YT\] [The Parting Glass (Josh Okeefe)](https://youtu.be/3on6H3hOycE?si=yXY9BqtXJr7bV5nG) 🧑‍🎤
+>\[YT\] [Parting Glass (Ed Sheeran)](https://youtu.be/o7PQooSn8OI?si=mSv1C5KnB3gGeztP) 🧑‍🎤
+>\[YT\] [The Parting Glass (Face Vocal Band)](https://youtu.be/2Sql9X4H0VY?si=AQdX-EwzwQqE0Poc)
+>\[YT\] [Parting Glass (The Hight Kings)](https://youtu.be/qMkQExuzL_0?si=H4sXJ_8ML0F1TzOa)
+>\[YT\] [The Parting Glass (Jessica Willis Fisher)](https://youtu.be/3C2n4m_nnFA?si=z6tsyNOzwUnVLlmN) 🧑‍🎤
 
 
 `{01}`

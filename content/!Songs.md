@@ -1,0 +1,68 @@
+>[!TLDR] 2026 (Q2)
+
+[[16 Tons]] 
+[[All for Me Grog]] (`🆕`) 
+[[Barley Mow]] (`🆕`) 
+[[Barrett's Privateers]] (`🆕`)
+[[Bay of Suvla]] 
+[[Bella ciao]] (`🇮🇹`)
+[[Bones In The Ocean]] (`🅰️`)
+[[Bully in the Alley (🆕)]] (`🆕`)
+[[Chemical Worker's Song]] 
+[[Cielito Lindo]] (`🆕🇲🇽`)
+[[Come Out Ye Black and Tans]] 
+[[Cruel Wars]] (`🆕`) 
+[[Don't Forget Your Old Shipmate]] (`🆕`) 
+[[Drunken Sailor]] 
+[[Dublin Pub Crawl]] (`🆕🅰️`) 
+[[Fish in the Sea]] (`🅰️`) 
+[[Foggy Dew]] 
+[[General Taylor]] (`🅰️`) 
+[[Haul Away Joe]] (`🅰️`)
+[[Health to the Company]] (`🆕`) 
+[[Hoist the Colours]] 
+[[Horse Soldier]] 
+[[House Carpenter]] 
+[[I'll Tell Me Ma]] (`🆕`) 
+[[Idiot]] 
+Join the British Army (`🆕`) 
+[[John Kanaka]] (`🆕🅰️`) 
+[[Johnny I Hardly Knew Ye]]
+[[Leave Her Johnny]] 
+[[Lowlands]] (`🅰️`) 
+[[Mingulay Boat Song]] (`🆕🅰️`) 
+[[Misty Mountains]] 
+[[My Mother Told Me (Song of the Vikings)]] 
+[[Oak, Ash, and Thorn]] 
+[[Off to Sea (🆕)]] (`🆕`)
+[[Old Maui]] 
+[[Oro Se Do Bheatha Abhaile]] (`🆕🇮🇪`)
+[[Parting Glass]] (`🆕`) 
+[[Pique la Baleine]] (`🆕🇫🇷`)
+[[Randy Dandy-O]] 
+[[Retirement Song]] (`🆕`) 
+Rising of the Moon (`🆕`) 
+[[Rocky Road to Dublin]] (`🆕🅰️`) 
+[[Roll Northumbria]] 
+[[Roll the Old Chariot]] 
+[[Santiana]] 
+[[Some Say the Devil is Dead]] (`🆕`) 
+[[Star of the County Down]] (`🆕`) 
+[[Up Among the Heather]] 
+[[Valhalla Calling]] 
+[[Wellerman]] 
+[[Whiskey in the Jar]] (`🆕`) 
+[[Wild Mountain Thyme]] (`🅰️`) 
+[[You and Me and the Devil Makes Three]] 
+
+>[!TLDR] B-side
+
+Hurt (Johnny Cash) 
+One (Johnny Cash) 
+Otherside (Red Hot Chili Peppers) 
+Paint It, Black (The Rolling Stones) 
+[[Rose Tattoo (🅱️)]] (Dropkick Murphys)
+
+`🆕 ` — новый материал (~3 мес) 
+`🅰️ ` — а капелла 
+
